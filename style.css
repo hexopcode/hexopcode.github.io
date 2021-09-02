@@ -18,7 +18,7 @@
 }
 
 /** reset */
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -65,6 +65,10 @@ header {
   margin-top: 1em;
 }
 
+p::before {
+  content: '> ';
+}
+
 li {
   list-style: none;
 }
@@ -79,7 +83,7 @@ a:hover {
   color: var(--nowak-02);
 }
 
-a:before, a:after {
+a::before, a::after {
   content: '|';
   color: var(--nowak-02);
 }
