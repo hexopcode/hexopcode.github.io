@@ -1,20 +1,24 @@
 :root {
-  /** chomotome nowak */
-  --nowak-01: #e85b30;
-  --nowak-02: #ef9e28;
-  --nowak-03: #c6ac71;
-  --nowak-04: #e0c191;
-  --nowak-05: #3f6279;
-  --nowak-06: #ee854e;
-  --nowak-07: #180305;
-  --nowak-stroke: #180305;
-  --nowak-background: #ede4cb;
+  /** from https://coolors.co/palettes/popular/monochromatic */
+  --blue00: #00111c;
+  --blue01: #001523;
+  --blue02: #001a2c;
+  --blue03: #002137;
+  --blue04: #00253e;
+  --blue05: #002945;
+  --blue06: #002e4e;
+  --blue07: #003356;
+  --blue08: #003a61;
+  --blue09: #00406c;
 
-  /** styles */
-  --ruilopes-background: var(--nowak-05);
-  --ruilopes-stroke: var(--nowak-04);
-  --ruilopes-highlight: var(--nowak-02);
-  --ruilopes-highlight-2: var(--nowak-03);
+  --text-color: var(--blue09);
+  --text-background: var(--blue00);
+
+  --pad: 15px;
+  --pad2: calc(var(--pad) * 2);
+  --pad3: calc(var(--pad) * 3);
+  --pad-half: calc(var(--pad) * 0.5);
+  --font-size: 10pt;
 }
 
 /** reset */
@@ -23,75 +27,74 @@
   margin: 0;
   padding: 0;
 
-  font-weight: 300;
-  font-size: 10pt;
+  font-weight: 500;
+  font-size: var(--font-size);
+  
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 body {
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   overflow: hidden;
   overscroll-behavior: none;
 
-  background-color: var(--nowak-background);
-  color: var(--ruilopes-stroke);
+  background-color: var(--text-background);
+  color: var(--text-color);
 
-  font-family: 'Roboto Mono', monospace;
-}
-
-main {
-  width: calc(100% - 2em);
-  height: calc(100% - 2em);
-  
-  margin: 1em;
-  padding: 1em;
-  border-radius: 3px;
-  box-shadow: 0.5em 0.5em 1em var(--nowak-stroke);
-
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-
-  background-color: var(--ruilopes-background);
-  color: var(--ruilopes-stroke);
+  font-family: 'Inter', sans-serif;
 }
 
 ::selection {
-  background-color: var(--ruilopes-stroke);
-  color: var(--ruilopes-background);
-}
-
-header {
-  margin-top: 1em;
-}
-
-p::before {
-  content: '> ';
+  background-color: var(--text-color);
+  color: var(--text-background);
 }
 
 li {
   list-style: none;
 }
 
-a, a:visited, a:hover {
-  color: var(--nowak-03);
+a, a:visited {
+  color: var(--text-color);
   text-decoration: none;
   outline: none;
 }
 
 a:hover {
-  color: var(--nowak-02);
+  text-decoration: underline;
 }
 
-a::before, a::after {
-  content: '|';
-  color: var(--nowak-02);
+#presenter {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.highlight {
-  color: var(--ruilopes-highlight);
+nav {
+  display: inline-block;
+  padding: var(--pad);
+
+  border: 1px solid var(--blue02);
+  border-radius: var(--pad);
+  background-color: var(--blue02);
+
+  box-shadow: var(--pad-half) var(--pad-half) var(--pad) var(--blue01);
 }
 
-.highlight-2 {
-  color: var(--ruilopes-highlight-2);
+nav h1 {
+  font-size: calc(var(--font-size) * 2);
+  padding: 0 var(--pad3) var(--pad2) var(--pad3);
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  flex: 1;
+  text-align: center;
 }
